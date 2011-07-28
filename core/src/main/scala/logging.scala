@@ -1,7 +1,7 @@
 package dispatch
 
 /** Mix in to Http if you want JDK logging */
-trait JdkLogging extends HttpExecutor {
+trait JdkLogging extends RequestLogging {
   override def make_logger = new dispatch.Logger {
     val jdklog = java.util.logging.Logger.getLogger("dispatch")
     def info(msg: String, items: Any*) { 
@@ -18,7 +18,7 @@ trait JdkLogging extends HttpExecutor {
  * Note that HttpClient logs separately:
  * http://hc.apache.org/httpcomponents-client/logging.html
  */
-trait NoLogging extends HttpExecutor {
+trait NoLogging extends RequestLogging {
   override def make_logger = new dispatch.Logger {
     def info(msg: String, items: Any*) { }
     def warn(msg: String, items: Any*) { }

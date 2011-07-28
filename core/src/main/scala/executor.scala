@@ -8,7 +8,7 @@ import org.apache.http.client.methods._
 /** Defines request execution and response status code behaviors. Implemented methods are finalized
     as any overrides would be lost when instantiating delegate executors, is in Threads#future. 
     Delegates should chain to parent `pack` and `execute` implementations. */
-trait HttpExecutor extends RequestLogging {
+trait HttpExecutor extends JdkLogging {
   /** Type of value returned from request execution */
   type HttpPackage[T]
   /** Execute the request against an HttpClient */

@@ -4,7 +4,7 @@ import Keys._
 object Dispatch extends Build {
   val shared = Defaults.defaultSettings ++ Seq(
     organization := "net.databinder",
-    version := "0.8.4",
+    version := "0.8.4.1",
     crossScalaVersions := Seq("2.8.0", "2.8.1", "2.9.0", "2.9.0-1", "2.9.1.RC1"),
     libraryDependencies <++= (scalaVersion) { sv => Seq(
       "org.apache.httpcomponents" % "httpclient" % "4.1",
@@ -15,7 +15,7 @@ object Dispatch extends Build {
         case _ => error("specs not support for scala version %s" format sv)
       })
     },
-    publishTo := Some("Scala Tools Nexus" at "http://nexus.scala-tools.org/content/repositories/releases/"),
+    publishTo := Some("Scala Tools Nexus" at "http://10.101.0.202:8081/nexus/content/repositories/3rdparty/"),
     credentials += Credentials(Path.userHome / ".ivy2" / ".credentials")
   )
   lazy val dispatch =
